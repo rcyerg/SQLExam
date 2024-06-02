@@ -30,31 +30,36 @@ UPDATE movies
 SET Rating='R'
 WHERE Title='Starship Troopers';
 
-8.
+7a.
+ALTER TABLE movies
+DROP PRIMARY KEY,
+ADD id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;
+
+7b.
 SELECT Title, IMDB_Score, Rating
 FROM movies
 WHERE Genre IN ('Horror', 'Documentary');
 
-9.
+8.
 SELECT Rating, AVG(IMDB_Score), MIN(IMDB_Score), MAX(IMDB_Score)
 FROM movies
 GROUP BY Rating;
 
-10.
+9.
 SELECT Rating, COUNT(* ) AS '# of Movies', AVG(IMDB_Score), MIN(IMDB_Score), MAX(IMDB_Score)
 FROM movies
 GROUP BY Rating
 HAVING COUNT(*) > 1;
 
-11.
+10.
 DELETE
 FROM movies
 WHERE Rating='R';
 
-12.
+11.
 DROP TABLE movies;
 
-13.
+12.
 DROP DATABASE movies_db;
 
 
